@@ -6,5 +6,27 @@
 </head>
 <body>
 	<script src="QuizWork.js"> </script>
-	<p>This is where I'd put the instructions. IF I HAD ANY!</p>
+	<p>This is where I'd put the instructions. IF I HAD ANY! <br/>
+	Field where you choose the number of questions to be asked goes here. Cannot be larger than max number of questions.<br/>
+	<br/><br/>
+	Array with identifying number, and "Question" Object<br/>
+	Question Object has a String for question (Question text), and a linked answer array (AnswerList). <br/>
+	Answers have a string for answer (AnswerText) and boolean for if it's the correct answer(accuracy). <br/>
+	<br/>
+	On play, reset value of correct answers, then shuffle questionID into a list, then go down the list as the questions to be asked number. <br/>
+	On correct, value of correct answers +1 <br/>
+	<br/><br/>
+	Question page;<br/>
+	Question (current)/(chosen max): (insert question here) in large font, (insert answers here.)<br/>
+	Submit button checks the chosen answer for a true in the accuracy check.<br/>
+	If correct: stuff temporarily turns green, you got it! Is displayed, and the value is updated.<br/>
+	Else: stuff goes red, you got it wrong is displayed, continue.<br/>
+	<br/><br/>
+	Results page<br/>
+	(number right)/(questions checked)<br/>
+	"Play again?" Button bring us back to the front.<br/>
+	<br/><br/>
+	Style points: Randomised responses. Have string arrays of relevant sentences,<br/> and a function to retrieve a random response from the array. Have different arrays or functions for different contexts.<br/>
+	Unnecessary Extra Fancy: split the stuff into two, having one js be the functions,<br/> and the other, which is imported by the first, be a repository of all the arrays, questions, answers and responses.<br/>
+</p>
 </body>
