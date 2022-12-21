@@ -59,17 +59,4 @@ function results() {
 console.log("Question 1 is " + Question1.text + " It's answers are: " + Question1.Ans1.text + ", which is " + Question1.Ans1.verity + ", " + Question1.Ans2.text + ", which is " + Question1.Ans2.verity + ", and " + Question1.Ans3.text + ", which is " + Question1.Ans3.verity + ".");
 console.log("Question 2 is " + Question2.text + " It's answers are: " + Question2.Ans1.text + ", which is " + Question2.Ans1.verity + ", " + Question2.Ans2.text + ", which is " + Question2.Ans2.verity + ", and " + Question2.Ans3.text + ", which is " + Question2.Ans3.verity + ".");
 console.log("Question 3 is " + Question3.text + " It's answers are: " + Question3.Ans1.text + ", which is " + Question3.Ans1.verity + ", " + Question3.Ans2.text + ", which is " + Question3.Ans2.verity + ", and " + Question3.Ans3.text + ", which is " + Question3.Ans3.verity + ".");
-
-//9 + 10? 19, 21, 910
-//what 'salad fruit' does cheese go best with? capsicum, tomatoes, cucumbers
-//what is 'Octo'? the 10th month, a celaphod, a sort of underwater animal, the prefix for 'eight'
-//
-
-//new String[] wrongAnswerResponseList = {"nope.", "maybe that was a mis-click?", "Sorry, that was incorrect.", "rip" "Yeah. that tracks."};
-//new String[] goodAnswerResponseList = {"We take those!", "That will do.", "Correct. Great job!", "Good answer!", "Yeah, that tracks."};
-//Arrays of randomised responses.
-function Response(target) {
-	var index = Math.floor(Math.random() * target.length);
-	return target[index];
-}
-
+//debug code to see if the questions and answers are valid.
