@@ -1,5 +1,5 @@
 "use strict";
-console.log("QuizWork.js is working");
+console.log("QuizWork copy.js is working");
 
 var correctAnswers = 0;
 var totalStages = 3;
@@ -17,14 +17,6 @@ let Answer3A = {text: "The 10th month.", verity: false};
 let Answer3B = {text: "A 'cephalopod,' a mollusc and an underwater predator.", verity: false};
 let Answer3C = {text: "The prefix for 'eight.'", verity: true};
 
-const pageContent = document.getElementById("page");
-//console.log("QuizWork.js page: ", pageContent.textContent);
-
-//QContent is the innerHTML stored to be used as questions.
-const QContent1 = "<strong>Question 1:'+Question1.text+'<br/><div><button type='button' onClick='CorrectAnswer();'>Question1.Ans1.text</button></div><br/><div><button type='button' onClick='WrongAnswer();'>Question1.Ans2.text</button></div><br/><div><button type='button' onClick='WrongAnswer();'>Question1.Ans3.text</button></div>";
-//const QContent2 = "<strong>Question 2:</strong><br/>'+<i>Question2.text</i>+'<br/><div><a onClick="WrongAnswer();" style="cursor: pointer; cursor: hand;">Question2.Ans1.text</a></div><br/><div><a onClick="CorrectAnswer();" style="cursor: pointer; cursor: hand;">Question2.Ans2.text</a></div><br/><div><a onClick="WrongAnswer();" style="cursor: pointer; cursor: hand;">Question2.Ans3.text</a></div>";
-//const QContent3 = "<strong>Question 3:</strong><br/>'+<i>Question2.text</i>+'<br/><div><a onClick="WrongAnswer();" style="cursor: pointer; cursor: hand;">Question3.Ans1.text</a></div><br/><div><a onClick="WrongAnswer();" style="cursor: pointer; cursor: hand;">Question3.Ans2.text</a></div><br/><div><a onClick="CorrectAnswer();" style="cursor: pointer; cursor: hand;">Question3.Ans3.text</a></div>";
-
 function Question(text, Ans1, Ans2, Ans3) {
 	this.text = text;
 	this.Ans1 = Ans1;
@@ -36,17 +28,16 @@ let Question1 = new Question("What is 9 + 10?", Answer1A, Answer1B, Answer1C);
 let Question2 = new Question("What 'salad fruit' does cheese go best with?", Answer2A, Answer2B, Answer2C);
 let Question3 = new Question("What is 'Octo?'", Answer3A, Answer3B, Answer3C);
 
-function startQuiz() {
+function toStart() {
 	correctAnswers = 0;
 	currentStage = 0;
-	loadQuestion();
 }
 
 
-function loadQuestion() {
+function nextPart() {
 	currentStage += 1;
 	if (currentStage == 1) {
-		pageContent.innerHTML = QContent1;
+		//pageContent.innerHTML = QContent1;
 	} else if (currentStage == 2) {
 		//pageContent.innerHTML = QContent2;
 	} else if (currentStage == 3) {
@@ -60,15 +51,14 @@ function loadQuestion() {
 function CorrectAnswer() {
 	//everything green
 	correctAnswers ++;
-	//new line that on click goes to next question.
-	pageContent.innerHTML = pageContent.innerHTML + "The answer is correct. <button type='button' onClick='loadQuestion();'>Please click here to continue.</button>";
+	nextPart();
 }
 
 function WrongAnswer() {
 	//everything red
 	//new line that on click goes to next question.
-	pageContent.innerHTML += "The answer is incorrect. <button type='button' onClick='loadQuestion();'>Please click here to continue.</button>";
- }
+	nextPart();
+}
 
 function results() {
 		pageContent.innerHTML = "You have gotten " + correctAnswers + " out of 3 Questions right. <button type='button' onClick='startQuiz();'>Please click here to start again.</button>";
