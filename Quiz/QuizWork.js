@@ -62,6 +62,7 @@ function WrongAnswer() {
 }
 
 function results() {
+	document.getElementById("score").innerHTML = correctAnswers;
 	cover.style.display = none;
 	q1.style.display = none;
 	q2.style.display = none;
