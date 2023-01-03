@@ -3,11 +3,58 @@
 <head>
 	<meta charset="utf-8">
 	<title> The Quiz </title>
+	<!-- sections not in use will be set to display none. -->
+	<style>
+		.cover { display:block}
+		.q1 {display:none}
+		.q2 {display:none}
+		.q3 {display:none}
+		.result {display:none}
+		.main {background-color: lightgray}
+	</style>
 </head>
-<body>
+<body id=".main">
 	<script src="QuizWork.js"></script>
-	<p id = "page">This is where I'd put the instructions. IF I HAD ANY! <br/>
-	There are three questions, with three answers each. Only one is considered "correct" for the purposes of this quiz.
-	<br/><br/></p>
-	<button type="button" onClick="startQuiz();">Please click here to start.</button>
+	<div id = ".cover">
+		<p>
+			Welcome to this quiz project! <br/>
+			There are three questions, with three answers each. Only one is considered "correct" for the purposes of this quiz.
+			<br/>
+			The score should be in the top left, and resets every new game.<br/>
+			<button type="button" onclick="nextPart();">Please click here to start.</button>
+		</p>
+	</div>
+	<div id=".q1">
+		<p>
+			<strong>Question 1:</strong><br/>
+			<i>What is 9 + 10?</i><br/>
+			<button type="button" onclick="CorrectAnswer()">19</button>
+			<button type="button" onclick="WrongAnswer()">21</button>
+			<button type="button" onclick="WrongAnswer()">910</button>
+		</p>
+	</div>
+	<div id=".q2">
+		<p>
+			<strong>Question 2:</strong><br/>
+			<i>What 'salad fruit' does cheese go best with?</i><br/>
+			<button type="button" onclick="WrongAnswer()">Capsicum</button>
+			<button type="button" onclick="CorrectAnswer()">Tomatoes</button>
+			<button type="button" onclick="WrongAnswer()">Cucumbers</button>
+		</p>
+	</div>
+	<div id=".q3">
+		<p>
+			<strong>Question 3:</strong><br/>
+			<i>What is 'Octo'?</i><br/>
+			<button type="button" onclick="WrongAnswer()">The 10th month</button>
+			<button type="button" onclick="WrongAnswer()">A 'cephalopod,' a mollusc and an underwater predator.</button>
+			<button type="button" onclick="CorrectAnswer()">The prefix for eight.</button>
+		</p>
+	</div>
+	<div id=".result">
+		<p>
+			Score: <!--correctAnswers-->
+			<button type="button" onclick="toStart()">Click here to start again.</button>
+		</p>
+	</div>
 </body>

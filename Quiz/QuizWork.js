@@ -1,80 +1,70 @@
 "use strict";
-console.log("QuizWork.js is working");
+console.log("QuizWork copy.js is working");
 
 var correctAnswers = 0;
 var totalStages = 3;
 var currentStage = 0;
 
-let Answer1A = {text: 19, verity: true};
-let Answer1B = {text: 21, verity: false};
-let Answer1C = {text: 910, verity: false};
+const main = document.getElementById('.main');
+const cover = document.getElementById('.cover');
+const q1 = document.getElementById('.q1');
+const q2 = document.getElementById('.q2');
+const q3 = document.getElementById('.q3');
+const result = document.getElementById('.result');
 
-let Answer2A = {text: "capsicum", verity: false};
-let Answer2B = {text: "tomatoes", verity: true};
-let Answer2C = {text: "cucumbers", verity: false};
-
-let Answer3A = {text: "The 10th month.", verity: false};
-let Answer3B = {text: "A 'cephalopod,' a mollusc and an underwater predator.", verity: false};
-let Answer3C = {text: "The prefix for 'eight.'", verity: true};
-
-const pageContent = document.getElementById("page");
-//console.log("QuizWork.js page: ", pageContent.textContent);
-
-//QContent is the innerHTML stored to be used as questions.
-const QContent1 = "<strong>Question 1:'+Question1.text+'<br/><div><button type='button' onClick='CorrectAnswer();'>Question1.Ans1.text</button></div><br/><div><button type='button' onClick='WrongAnswer();'>Question1.Ans2.text</button></div><br/><div><button type='button' onClick='WrongAnswer();'>Question1.Ans3.text</button></div>";
-//const QContent2 = "<strong>Question 2:</strong><br/>'+<i>Question2.text</i>+'<br/><div><a onClick="WrongAnswer();" style="cursor: pointer; cursor: hand;">Question2.Ans1.text</a></div><br/><div><a onClick="CorrectAnswer();" style="cursor: pointer; cursor: hand;">Question2.Ans2.text</a></div><br/><div><a onClick="WrongAnswer();" style="cursor: pointer; cursor: hand;">Question2.Ans3.text</a></div>";
-//const QContent3 = "<strong>Question 3:</strong><br/>'+<i>Question2.text</i>+'<br/><div><a onClick="WrongAnswer();" style="cursor: pointer; cursor: hand;">Question3.Ans1.text</a></div><br/><div><a onClick="WrongAnswer();" style="cursor: pointer; cursor: hand;">Question3.Ans2.text</a></div><br/><div><a onClick="CorrectAnswer();" style="cursor: pointer; cursor: hand;">Question3.Ans3.text</a></div>";
-
-function Question(text, Ans1, Ans2, Ans3) {
-	this.text = text;
-	this.Ans1 = Ans1;
-	this.Ans2 = Ans2;
-	this.Ans3 = Ans3;
-}
-
-let Question1 = new Question("What is 9 + 10?", Answer1A, Answer1B, Answer1C);
-let Question2 = new Question("What 'salad fruit' does cheese go best with?", Answer2A, Answer2B, Answer2C);
-let Question3 = new Question("What is 'Octo?'", Answer3A, Answer3B, Answer3C);
-
-function startQuiz() {
+function toStart() {
+	main.style.backgroundColor = 'lightgray';
 	correctAnswers = 0;
 	currentStage = 0;
-	loadQuestion();
+	cover.style.display = block;
+	q1.style.display = none;
+	q2.style.display = none;
+	q3.style.display = none;
+	result.style.display = none;
 }
 
-
-function loadQuestion() {
+function nextPart() {
 	currentStage += 1;
 	if (currentStage == 1) {
-		pageContent.innerHTML = QContent1;
+		cover.style.display = none;
+		q1.style.display = block;
+		q2.style.display = none;
+		q3.style.display = none;
+		result.style.display = none;
 	} else if (currentStage == 2) {
-		//pageContent.innerHTML = QContent2;
+		cover.style.display = none;
+		q1.style.display = none;
+		q2.style.display = block;
+		q3.style.display = none;
+		result.style.display = none;
 	} else if (currentStage == 3) {
-		//pageContent.innerHTML = QContent3;
+		cover.style.display = none;
+		q1.style.display = none;
+		q2.style.display = none;
+		q3.style.display = block;
+		result.style.display = none;
 	} else {
 		results();
 	}
-	//
 }
 
 function CorrectAnswer() {
-	//everything green
+	console.log("A correct answer has been chosen!");
+	main.style.backgroundColor = 'green';
 	correctAnswers ++;
-	//new line that on click goes to next question.
-	pageContent.innerHTML = pageContent.innerHTML + "The answer is correct. <button type='button' onClick='loadQuestion();'>Please click here to continue.</button>";
+	nextPart();
 }
 
 function WrongAnswer() {
-	//everything red
-	//new line that on click goes to next question.
-	pageContent.innerHTML += "The answer is incorrect. <button type='button' onClick='loadQuestion();'>Please click here to continue.</button>";
- }
-
-function results() {
-		pageContent.innerHTML = "You have gotten " + correctAnswers + " out of 3 Questions right. <button type='button' onClick='startQuiz();'>Please click here to start again.</button>";
+	console.log("An incorrect answer has been chosen.");
+	main.style.backgroundColor = 'red';
+	nextPart();
 }
 
-console.log("Question 1 is " + Question1.text + " It's answers are: " + Question1.Ans1.text + ", which is " + Question1.Ans1.verity + ", " + Question1.Ans2.text + ", which is " + Question1.Ans2.verity + ", and " + Question1.Ans3.text + ", which is " + Question1.Ans3.verity + ".");
-console.log("Question 2 is " + Question2.text + " It's answers are: " + Question2.Ans1.text + ", which is " + Question2.Ans1.verity + ", " + Question2.Ans2.text + ", which is " + Question2.Ans2.verity + ", and " + Question2.Ans3.text + ", which is " + Question2.Ans3.verity + ".");
-console.log("Question 3 is " + Question3.text + " It's answers are: " + Question3.Ans1.text + ", which is " + Question3.Ans1.verity + ", " + Question3.Ans2.text + ", which is " + Question3.Ans2.verity + ", and " + Question3.Ans3.text + ", which is " + Question3.Ans3.verity + ".");
-//debug code to see if the questions and answers are valid.
+function results() {
+	cover.style.display = none;
+	q1.style.display = none;
+	q2.style.display = none;
+	q3.style.display = none;
+	result.style.display = block;
+}
