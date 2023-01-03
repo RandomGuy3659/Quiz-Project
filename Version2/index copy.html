@@ -5,15 +5,16 @@
 	<title> The Quiz </title>
 	<!-- sections not in use will be set to display none. -->
 	<style>
-		.cover {}
+		.cover {display: block;}
 		.q1 {}
 		.q2 {}
 		.q3 {}
 		.result {}
+		.main {}
 	</style>
 </head>
-<body>
-	<!--script src="QuizWork-copy.js"></script-->
+<body id="main">
+	<script src="QuizWork-copy.js"></script>
 	<p id = "cover">
 		Welcome to this quiz project! <br/>
 		There are three questions, with three answers each. Only one is considered "correct" for the purposes of this quiz.
@@ -24,23 +25,23 @@
 	<p id="q1">
 		<strong>Question 1:</strong><br/>
 		<i>What is 9 + 10?</i><br/>
-		<button type="button" onclick="CorrectAnswer()" >19</button>
-		<button type="button" onclick="WrongAnswer()" >21</button>
-		<button type="button" onclick="WrongAnswer()" >910</button>
-	</p>
-	<p id="q3">
-		<strong>Question 2:</strong><br/>
-		<i>What is 9 + 10?</i><br/>
 		<button type="button" onclick="CorrectAnswer()">19</button>
 		<button type="button" onclick="WrongAnswer()">21</button>
 		<button type="button" onclick="WrongAnswer()">910</button>
 	</p>
-	<p id="q3">
-		<strong>Question 3:</strong><br/>
+	<p id="q2">
+		<strong>Question 2:</strong><br/>
 		<i>What 'salad fruit' does cheese go best with?</i><br/>
 		<button type="button" onclick="WrongAnswer()">Capsicum</button>
 		<button type="button" onclick="CorrectAnswer()">Tomatoes</button>
 		<button type="button" onclick="WrongAnswer()">Cucumbers</button>
+	</p>
+	<p id="q3">
+		<strong>Question 3:</strong><br/>
+		<i>What is 'Octo'?</i><br/>
+		<button type="button" onclick="WrongAnswer()">The 10th month</button>
+		<button type="button" onclick="WrongAnswer()">A 'cephalopod,' a mollusc and an underwater predator.</button>
+		<button type="button" onclick="CorrectAnswer()">The prefix for eight.</button>
 	</p>
 	<p id="result">
 		Score: <!--correctAnswers-->
